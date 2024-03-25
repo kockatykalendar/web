@@ -26,13 +26,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env(
     "SECRET_KEY",
-    default="django-insecure-4iif2zptl0e9k*f^ovyux+*ug!pf121!#k9^d0%h&g)b=pe+zk"
+    default="django-insecure-4iif2zptl0e9k*f^ovyux+*ug!pf121!#k9^d0%h&g)b=pe+zk",
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env("DJANGO_ALLOWED_HOSTS", default=["localhost"])
 
 
 # Application definition
