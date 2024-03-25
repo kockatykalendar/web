@@ -1,0 +1,32 @@
+name: Check migrations
+
+on:
+  pull_request:
+    paths-ignore:
+      - 'docs/**'
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - 'docs/**'
+
+jobs:
+  migrations:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    - name: Install Dependencies
+      run: |
+        export POETRY_HOME=/tmp/poetry
+        curl -sSL https://install.python-poetry.org | python3 -
+        python -m venv /tmp/venv
+        /tmp/poetry/bin/poetry install --no-root --no-interaction
+    - name: Tests for missing migrations
+      env:
+        DEBUG: True
+        DATABASE_URL: 'sqlite://'
+      run: /tmp/poetry/bin/poetry run kockatykalendar/manage.py makemigrations --check
