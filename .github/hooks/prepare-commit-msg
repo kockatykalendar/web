@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Check if we are in a Git repository
+if [ -z "$(git rev-parse --git-dir 2>/dev/null)" ]; then
+  exit 0
+fi
+
+# Function to get the name of the current branch
+get_branch_name() {
+  git symbolic-ref --short HEAD 2>/dev/null
+}
+
+# Get the branch name
+branch=$(get_branch_name)
+
+# Check if we are in a branch
+if [ -n "$branch" ]; then
+  # Get the commit message file
+  commit_msg_file=$1
+
+  # Check if a commit message file was provided
+  if [ -z "$commit_msg_file" ]; then
+    commit_msg_file=$(mktemp)
+    echo "No commit message file provided, using temporary file $commit_msg_file"
+  fi
+
+  # Prepend the branch name to the commit message
+  sed -i.bak -e "1s/^/$branch: /" "$commit_msg_file"
+
+  # Remove the backup file created by sed
+  rm -f "${commit_msg_file}.bak"
+fi
