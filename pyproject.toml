@@ -108,7 +108,7 @@ docstring-code-format = true
 docstring-code-line-length = "dynamic"
 
 [tool.bumpver]
-current_version = "version_week_4"
+current_version = "version_week_5"
 version_pattern = "version_week_[INC1]"
 commit_message = "🎉 Release {new_version}"
 commit = true
