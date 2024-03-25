@@ -24,6 +24,5 @@ RUN chown appuser:appuser /app/
 
 USER appuser
 
-COPY --chown=appuser:appuser . /app/
-RUN SECRET_KEY=static python manage.py collectstatic --no-input
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "flase.wsgi"]
+COPY --chown=appuser:appuser ./kockatykalendar /app/
+CMD ["/app/entrypoint.sh"]

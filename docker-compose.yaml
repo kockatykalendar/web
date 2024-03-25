@@ -1,0 +1,38 @@
+version: '3.4'
+services:
+  db:
+    image: postgres:16-alpine
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER=kockatykalendar
+      - POSTGRES_PASSWORD=kockatykalendar
+      - POSTGRES_DB=kockatykalendar
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "5433:5432"
+
+  web:
+    build:
+      context: .
+    image: kockatykalendar
+    env_file:
+      - .env
+    environment:
+      - DEBUG=True
+      - PARENT_HOST=localhost:8000
+      - REDIS_RQ_ASYNC=False
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./kockatykalendar/:/app/
+    depends_on:
+      - db
+    command: "./entrypoint.sh dev"
+
+  redis:
+    image: redis:7.2.0
+
+volumes:
+  postgres_data:
