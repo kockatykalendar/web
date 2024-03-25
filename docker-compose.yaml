@@ -30,6 +30,7 @@ services:
     depends_on:
       - db
     command: "./entrypoint.sh dev"
+    tty: true
 
   redis:
     image: redis:7.2.0

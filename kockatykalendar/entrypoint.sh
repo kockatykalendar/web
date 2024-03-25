@@ -14,5 +14,5 @@ if [ "$env" = "dev" ]; then
   exec python manage.py runserver 0.0.0.0:8000
 else
   python manage.py collectstatic --no-input
-  python -m uvicorn myproject.asgi:application
+  exec uvicorn --workers 1 --host 0.0.0.0 --port 8000 kockatykalendar.asgi:application
 fi

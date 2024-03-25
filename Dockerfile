@@ -19,7 +19,7 @@ ENV PATH=$POETRY_HOME/bin:$PATH
 RUN python -m venv /venv
 
 COPY pyproject.toml poetry.lock ./
-RUN poetry install --no-root
+RUN poetry install --no-root --no-interaction
 RUN chown appuser:appuser /app/
 
 USER appuser
