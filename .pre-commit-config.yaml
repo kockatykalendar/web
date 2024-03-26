@@ -30,3 +30,7 @@ repos:
     hooks:
       - id: mypy
         name: mypy
+
+ci:
+  skip:
+    - poetry-lock
