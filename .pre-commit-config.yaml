@@ -32,6 +32,7 @@ repos:
         name: mypy
 
 ci:
+  autoupdate_commit_msg: 'pre-commit.ci: pre-commit autoupdate'
   autofix_commit_msg: 'pre-commit.ci: auto fixes [...]'
   skip:
     - poetry-lock
