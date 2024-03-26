@@ -19,14 +19,21 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.12'
-    - name: Install Dependencies
+    - name: Install poetry
+      uses: abatilo/actions-poetry@v2
+    - name: Setup a local virtual environment (if no poetry.toml file)
       run: |
-        export POETRY_HOME=/tmp/poetry
-        curl -sSL https://install.python-poetry.org | python3 -
-        python -m venv /tmp/venv
-        /tmp/poetry/bin/poetry install --no-root --no-interaction
+        poetry config virtualenvs.create true --local
+        poetry config virtualenvs.in-project true --local
+    - uses: actions/cache@v3
+      name: Define a cache for the virtual environment based on the dependencies lock file
+      with:
+        path: ./.venv
+        key: venv-${{ hashFiles('poetry.lock') }}
+    - name: Install the project dependencies
+      run: poetry install --no-root --no-interaction
     - name: Tests for missing migrations
       env:
         DEBUG: True
         DATABASE_URL: 'sqlite://'
-      run: /tmp/poetry/bin/poetry run kockatykalendar/manage.py makemigrations --check
+      run: poetry run kockatykalendar/manage.py makemigrations --check
