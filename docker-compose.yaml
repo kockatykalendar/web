@@ -32,6 +32,16 @@ services:
     command: "./entrypoint.sh dev"
     tty: true
 
+  tailwind:
+    build:
+      context: .
+      target: cssbuild
+    volumes:
+      - ./kockatykalendar/:/app/kockatykalendar/
+      - ./css:/app/css/
+      - ./package.json:/app/package.json
+    tty: true
+
   redis:
     image: redis:7.2.0
 

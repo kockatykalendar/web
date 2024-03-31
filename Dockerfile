@@ -1,3 +1,14 @@
+FROM node:21.7.1-alpine AS cssbuild
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm install
+
+COPY . .
+RUN npm run css-prod
+CMD ["npm", "run", "css-dev"]
+
 FROM python:3.12-slim-bookworm
 WORKDIR /app
 RUN useradd --create-home appuser
