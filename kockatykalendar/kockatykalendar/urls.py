@@ -20,7 +20,9 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
+from web.views import HomepageView
 
 urlpatterns = [
+    path("", HomepageView.as_view(), name="homepage"),
     path("admin/", admin.site.urls),
 ]
