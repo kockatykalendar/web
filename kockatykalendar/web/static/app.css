@@ -555,6 +555,9 @@
   .h-20 {
     height: var(--spacing-20, 5rem);
   }
+  .h-24 {
+    height: var(--spacing-24, 6rem);
+  }
   .h-6 {
     height: var(--spacing-6, 1.5rem);
   }

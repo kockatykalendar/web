@@ -2,7 +2,11 @@
 
 {% load static %}
 
-{% block title %}prehľad M/F/I akcií a súťaží pre ZŠ a SŠ{% endblock %}
+{% block title %}Prehľad M/F/I akcií a súťaží pre ZŠ a SŠ{% endblock %}
+
+{% block extrahead %}
+    <script async defer src="{% static "js/homepage.js" %}"></script>
+{% endblock %}
 
 {% block content %}
     <main class="overflow-y-scroll">
