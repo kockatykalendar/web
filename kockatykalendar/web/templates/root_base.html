@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="{% static 'app.css' %}?v={{ version }}" type="text/css"/>
+
+
+    <title>{% block title %}{% endblock %} - KockatýKalendár.sk</title>
+
+    <meta name="theme-color" content="#4299e1">
+    <meta name="description" content="Všetky súťaže a akcie v oblasti matematiky, fyziky a informatiky na jednom mieste.">
+
+    <meta property="og:image" content="img/social.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:title" content="KockatýKalendár.sk" />
+    <meta property="og:description" content="Všetky súťaže a akcie v oblasti matematiky, fyziky a informatiky na jednom mieste." />
+
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous" defer></script>
+
+
+    {% block extrahead %}{% endblock %}
+</head>
+<body class="antialiased max-h-screen h-screen flex flex-col">
+    {% block root_content %}{% endblock %}
+    {% block messages %}
+        {% if messages %}
+            <ul class="fixed right-0 top-0 z-20 m-6 max-w-prose space-y-4">
+                {% for message in messages %}
+                <li class="border p-4 rounded relative bg-white shadow-xl flex items-center gap-3">
+                    <div class="shrink-0 text-xl">
+                        {% if message.tags == "info" %}
+                        <i class="fas fa-circle-info text-cyan-500"></i>
+                        {% elif message.tags == "success" %}
+                        <i class="fas fa-circle-check text-green-600"></i>
+                        {% elif message.tags == "warning" %}
+                        <i class="fas fa-exclamation-triangle text-amber-600"></i>
+                        {% elif message.tags == "error" %}
+                        <i class="fas fa-circle-xmark text-red-600"></i>
+                        {% endif %}
+                    </div>
+                    <span>{{ message }}</span>
+                    <div onclick="this.parentNode.remove()" class="shrink-0 text-gray-600 hover:text-gray-900 cursor-pointer" role="button" title="Zavrieť">
+                        <i class="fas fa-xmark"></i>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endblock messages %}
+</body>
+</html>
