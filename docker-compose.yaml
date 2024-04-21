@@ -39,7 +39,7 @@ services:
     volumes:
       - ./kockatykalendar/:/app/kockatykalendar/
       - ./css:/app/css/
-      - ./package.json:/app/package.json
+    command: "bun x @tailwindcss/cli@next -i css/app.css -o kockatykalendar/web/static/app.css --watch"
     tty: true
 
   redis:

@@ -1,13 +1,10 @@
-FROM node:21.7.1-alpine AS cssbuild
+FROM oven/bun:1.1.4 AS cssbuild
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
-RUN npm install
-
 COPY . .
-RUN npm run css-prod
-CMD ["npm", "run", "css-dev"]
+RUN bun install tailwindcss@next @tailwindcss/cli@next
+CMD ["bun", "x", "tailwindcss/cli@next", "-i", "css/app.css", "-o", "kockatykalendar/web/static/app.css", "--watch"]
 
 FROM python:3.12-slim-bookworm
 WORKDIR /app
