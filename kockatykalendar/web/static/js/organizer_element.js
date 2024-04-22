@@ -49,4 +49,4 @@ class Organizer extends HTMLElement {
     }
 }
 
-customElements.define("organizer-element", Organizer, { extends: "article" });
+customElements.define("organizer-element", Organizer);

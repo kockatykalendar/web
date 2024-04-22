@@ -15,15 +15,14 @@ let ORGANIZERS = load_json(`${DATA_URL_PREFIX}/organizers.json`)
 
 
 document.addEventListener('DOMContentLoaded', async () => {
-	ORGANIZERS = await ORGANIZERS
-	DEFAULT_ORGANIZERS.forEach(org => {
+	Object.values(await ORGANIZERS).filter(org => org.hasOwnProperty("info")).forEach(org => {
 		let element = document.createElement("organizer-element");
-		element.setAttribute("color", ORGANIZERS[org].color);
-		element.setAttribute("link", ORGANIZERS[org].web);
-		element.setAttribute("icon", `${DATA_URL_PREFIX}/${ORGANIZERS[org].icon}`);
-		element.setAttribute("name", ORGANIZERS[org].name);
+		element.setAttribute("color", org.color);
+		element.setAttribute("link", org.web);
+		element.setAttribute("icon", `${DATA_URL_PREFIX}/${org.icon}`);
+		element.setAttribute("name", org.name);
 		let info =document.createElement("p");
-		info.textContent = ORGANIZERS[org].info;
+		info.textContent = org.info;
 		info.setAttribute("slot", "info");
 		element.appendChild(info);
 		document.getElementById('organizations').appendChild(element);
