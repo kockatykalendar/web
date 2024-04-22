@@ -16,14 +16,15 @@ version_week_7
 - [ ] testovanie GitHub REST API (5 hodín)
 
 ### Čo som spravil tento týždeň:
-- [ ] vyriešiť zobrazovanie náhľadu kalendáru ( hodín)
-- [ ] dokončenie verejnej časti frontendu ( hodiny)
-- [ ] testovanie GitHub REST API ( hodín)
+
 
 ### Vysvetlenie rozdielov medzi plánom a realitou:
-
+Rodinné problémy mi neumožnili venovať sa projektu tento týždeň. Budúci týždeň sa pokúsim dobehnúť to, čo som nestihol tento týždeň.
 
 ### Plány na budúci týždeň:
+- [ ] vyriešiť zobrazovanie náhľadu kalendáru (8 hodín)
+- [ ] dokončenie verejnej časti frontendu (4 hodiny)
+- [ ] testovanie GitHub REST API (5 hodín)
 - [ ] autentizácia voči GitHub-u (3 hodiny)
 - [ ] prvý návrh pridávania eventov (6 hodín)
 

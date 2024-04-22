@@ -11,17 +11,23 @@ version_week_8
 8.4.2024 – 14.4.2024
 
 ### Čo som plánoval spraviť tento týždeň:
+- [ ] vyriešiť zobrazovanie náhľadu kalendáru (8 hodín)
+- [ ] dokončenie verejnej časti frontendu (4 hodiny)
+- [ ] testovanie GitHub REST API (5 hodín)
 - [ ] autentizácia voči GitHub-u (3 hodiny)
 - [ ] prvý návrh pridávania eventov (6 hodín)
 
 ### Čo som spravil tento týždeň:
-- [ ] autentizácia voči GitHub-u ( hodiny)
-- [ ] prvý návrh pridávania eventov ( hodín)
 
 ### Vysvetlenie rozdielov medzi plánom a realitou:
-
+Stale som se k tomu žiaľ nevedel dostať.
 
 ### Plány na budúci týždeň:
+- [ ] vyriešiť zobrazovanie náhľadu kalendáru (8 hodín)
+- [ ] dokončenie verejnej časti frontendu (4 hodiny)
+- [ ] testovanie GitHub REST API (5 hodín)
+- [ ] autentizácia voči GitHub-u (3 hodiny)
+- [ ] prvý návrh pridávania eventov (6 hodín)
 - [ ] chystanie prezentácie (12 hodín)
 
 ### S čím som mal problémy:
