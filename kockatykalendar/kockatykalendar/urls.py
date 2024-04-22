@@ -20,9 +20,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from web.views import HomepageView
+from web.views import EventsView, HomepageView
 
 urlpatterns = [
     path("", HomepageView.as_view(), name="homepage"),
+    path("terminy", EventsView.as_view(), name="events"),
     path("admin/", admin.site.urls),
 ]
