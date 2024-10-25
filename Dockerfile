@@ -6,7 +6,7 @@ COPY . .
 RUN bun install tailwindcss@next @tailwindcss/cli@next
 CMD ["bun", "x", "tailwindcss/cli@next", "-i", "css/app.css", "-o", "kockatykalendar/web/static/app.css", "--watch"]
 
-FROM python:3.12-slim-bookworm
+FROM python:3.13-slim-bookworm
 WORKDIR /app
 RUN useradd --create-home appuser
 
