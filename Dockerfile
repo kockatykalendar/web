@@ -1,4 +1,4 @@
-FROM oven/bun:1.1.4 AS cssbuild
+FROM oven/bun:1.1.33 AS cssbuild
 
 WORKDIR /app
 
